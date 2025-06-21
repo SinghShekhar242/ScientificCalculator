@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: white;
+}
+
+.calculator-container {
+  display: flex;
+  height: 100vh;
+}
+
+.scientific-panel {
+  width: 30%;
+  background-color: #1e1e2f;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-right: 2px solid #333;
+}
+
+.scientific-panel h2 {
+  margin-top: 0;
+  font-size: 24px;
+  text-align: center;
+  color: #ffcc00;
+  margin-bottom: 20px;
+}
+
+.sci-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sci-buttons button {
+  flex: 1 1 45%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #4a2a72;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px #321c50;
+  transition: 0.2s;
+}
+
+.sci-buttons button:hover {
+  background-color: #643c90;
+}
+
+
+.main-panel {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1b1b1b;
+}
+
+.display {
+  height: 30%;
+  background-color: #000;
+  color: #0f0;
+  font-size: 32px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  word-wrap: break-word;
+  overflow-x: auto;
+  border-bottom: 2px solid #444;
+}
+
+
+.buttons {
+  height: 70%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 20px;
+}
+
+
+.buttons button {
+  font-size: 22px;
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+
+.buttons button:nth-child(1) { background-color: #c62828; color: white; }   /* Clear */
+.buttons button:nth-child(2),
+.buttons button:nth-child(3),
+.buttons button:nth-child(4n) {
+  background-color: #0288d1; color: white;                                  /* Operators */
+}
+
+.buttons button:nth-last-child(2) { background-color: #ffa000; color: white; } /* ⌫ */
+.buttons button:last-child { background-color: #43a047; color: white; }       /* = */
+
+.buttons button:not(:nth-child(4n)):not(:last-child):not(:nth-last-child(2)):not(:nth-child(1)) {
+  background-color: #2c2c2c; color: white;                                 /* Numbers and dot */
+}
+
+.buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 768px) {
+  .calculator-container {
+    flex-direction: column;
+  }
+
+  .scientific-panel, .main-panel {
+    width: 100%;
+    height: 50%;
+  }
+
+  .display {
+    font-size: 24px;
+    padding: 10px;
+  }
+
+  .buttons button, .sci-buttons button {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .sci-buttons {
+    gap: 8px;
+  }
+}
